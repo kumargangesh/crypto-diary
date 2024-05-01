@@ -1,0 +1,489 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: rgb(12, 25, 37);
+    color: #bfa181;
+    font-weight: bolder;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.btn-group {
+    height: 50px;
+}
+
+.dropdown-menu {
+    background-color: rgb(12, 25, 37);
+    color: #bfa181;
+    border: 1px solid #bfa181;
+}
+
+.dropdown-menu button {
+    color: #bfa181;
+    width: 100%;
+    margin: 1% auto;
+}
+
+.btn-group ul:hover {
+    background-color: rgb(12, 25, 37);
+    color: #bfa181;
+}
+
+/* ----------------- CCS For NewEntry.js -------------------- */
+
+.newCrypto {
+    border: 1px solid #bfa181;
+    width: 40%;
+    height: fit-content;
+    margin: 2.5% 30%;
+    padding: 2% 5%;
+}
+
+.newCrypto h1 {
+    font-size: 54px;
+}
+
+.newCrypto input {
+    width: 90%;
+    height: 60px;
+    background-color: rgb(12, 25, 37);
+    color: #bfa181;
+    padding: 2% 5%;
+    margin: 3% 5%;
+    border: 1px solid #bfa181;
+    font-size: 23px;
+}
+
+.newCrypto button {
+    width: 35%;
+    height: 60px;
+    margin-top: 4%;
+}
+
+/* ----------------- CCS For CryptoInfo.js -------------------- */
+
+
+.row {
+    width: 99%;
+    height: fit-content;
+    margin: 2% auto;
+    padding: 1%;
+}
+
+.singleCryptoInfo {
+    border: 1px solid #bfa181;
+    margin: 2% auto;
+    width: 99%;
+}
+
+.singleCryptoInfo input {
+    width: 90%;
+    height: 60px;
+    background-color: rgb(12, 25, 37);
+    color: #bfa181;
+    padding: 1% 5%;
+    font-size: 22px;
+    border: 1px solid #bfa181;
+    margin: 2% 5%;
+}
+
+/* ------------------ CSS for ShowIndividualCrypto.js -------------------- */
+
+.divWithInputButton {
+    border: 1px solid #bfa181;
+    width: 90%;
+    height: fit-content;
+    margin: .5% auto;
+
+}
+
+.divWithInputButton input {
+    width: 30%;
+    height: 60px;
+    margin: 2% 35%;
+    padding: 1% 5%;
+    background-color: rgb(12, 25, 37);
+    border: 1px solid #bfa181;
+    color: #bfa181;
+    font-size: 22px;
+}
+
+.divWithInputButton .searchButton {
+    width: 16%;
+    height: 60px;
+    margin: .1% 42%;
+}
+
+.IndividualCrypto {
+    border: 1px solid #bfa181;
+    width: 80%;
+    height: fit-content;
+    padding: 1%;
+    margin: 1% auto;
+}
+
+.IndividualCrypto input {
+    width: 90%;
+    height: 60px;
+    margin: 1% 5%;
+    padding: 1% 5%;
+    background-color: rgb(12, 25, 37);
+    color: #bfa181;
+    border: 1px solid #bfa181;
+}
+
+.nouserfound {
+    width: 90%;
+    height: fit-content;
+    padding: 3%;
+    margin: 3% auto;
+}
+
+.nouserfound button {
+    width: 80%;
+    height: 60px;
+    margin: 5% 10%;
+}
+
+/* ------------------ for mobile screens -------------------- */
+@media(min-width: 300px) {
+    .btn-group {
+        width: 98%;
+        margin: 5% 1%;
+    }
+
+    .dropdown-menu {
+        width: 342px;
+    }
+
+    .newCrypto {
+        width: 98%;
+        margin: 13% auto;
+    }
+
+    .newCrypto h1 {
+        font-size: 36px;
+        margin-top: 4%;
+    }
+
+    .newCrypto input {
+        width: 98%;
+        margin: 3% auto;
+    }
+
+    .newCrypto button {
+        width: 40%;
+    }
+
+    .cryptos {
+        background-color: rgb(12, 25, 37);
+        width: 99%;
+        height: fit-content;
+        margin: 10% auto;
+    }
+
+    .singleCryptoInfo h1 {
+        margin-top: 5%;
+        font-size: 40px;
+    }
+
+    .singleCryptoInfo input {
+        height: 50px;
+    }
+
+    .buttonGroup button {
+        width: initial;
+        margin: 5% 1%;
+        height: initial;
+    }
+
+    .divWithInputButton {
+        border: 1px solid #bfa181;
+        width: 90%;
+        height: fit-content;
+        margin: 3% auto;
+        padding: 2%;
+    }
+
+    .divWithInputButton input {
+        width: 94%;
+        height: 60px;
+        margin: 2% 5%;
+        padding: 1% 5%;
+        background-color: rgb(12, 25, 37);
+        border: 1px solid #bfa181;
+        color: #bfa181;
+        font-size: 22px;
+    }
+
+    .divWithInputButton p {
+        margin-top: 5%;
+    }
+
+    .divWithInputButton .searchButton {
+        width: 50%;
+        height: 60px;
+        margin: .1% 25%;
+    }
+
+    .IndividualCrypto {
+        margin: 8% auto;
+        width: 96%;
+    }
+
+    .IndividualCrypto h1 {
+        margin-top: 5%;
+        font-size: 45px;
+    }
+
+    .IndividualCrypto input {
+        margin: 3% 5%;
+    }
+
+    .nouserfound {
+        width: 90%;
+        height: fit-content;
+        padding: 3%;
+        margin: 20% auto;
+        border: 0px solid #bfa181;
+    }
+
+    .nouserfound h1 {
+        font-size: 35px;
+    }
+
+    .nouserfound button {
+        width: 80%;
+        height: 60px;
+        margin: 10%;
+    }
+}
+
+/* ------------------ for tablet screens -------------------- */
+@media(min-width: 600px) {
+    .btn-group {
+        width: 46%;
+        margin: 5% 27%;
+    }
+
+    .dropdown-menu {
+        width: 300px;
+    }
+
+    .cryptos {
+        background-color: rgb(12, 25, 37);
+        width: 99%;
+        height: fit-content;
+        margin: 7% auto;
+    }
+
+    .singleCryptoInfo h1 {
+        margin-top: 4%;
+        font-size: 50px;
+    }
+
+    .singleCryptoInfo input {
+        height: 55px;
+    }
+
+    .buttonGroup button {
+        width: 70%;
+        margin: 5% 1%;
+        height: 70px;
+    }
+
+    .divWithInputButton {
+        border: 1px solid #bfa181;
+        width: 94%;
+        height: fit-content;
+        margin: 3% auto;
+    }
+
+    .divWithInputButton input {
+        width: 90%;
+        height: 60px;
+        margin: 2% 5%;
+        padding: 1% 5%;
+        background-color: rgb(12, 25, 37);
+        border: 1px solid #bfa181;
+        color: #bfa181;
+        font-size: 22px;
+    }
+
+    .divWithInputButton p {
+        margin-top: 2%;
+    }
+
+    .divWithInputButton .searchButton {
+        width: 30%;
+        height: 60px;
+        margin: .1% 35%;
+    }
+
+    .IndividualCrypto {
+        margin: 5% auto;
+        width: 96%;
+    }
+
+    .IndividualCrypto h1 {
+        margin-top: 3%;
+        font-size: 60px;
+    }
+
+    .IndividualCrypto input {
+        width: 70%;
+        height: 60px;
+        margin: 3% 15%;
+    }
+
+    .nouserfound {
+        width: 90%;
+        height: fit-content;
+        padding: 3%;
+        margin: 15% auto;
+        border: 0px solid #bfa181;
+    }
+
+    .nouserfound h1 {
+        font-size: 45px;
+    }
+
+    .nouserfound button {
+        width: 80%;
+        height: 60px;
+        margin: 10%;
+    }
+}
+
+/* ------------------ for laptop screens -------------------- */
+@media(min-width: 900px) {
+    .btn-group {
+        width: 20%;
+        margin: 5% 40%;
+    }
+
+    .dropdown-menu {
+        width: 305px;
+    }
+
+    .newCrypto {
+        border: 1px solid #bfa181;
+        width: 40%;
+        height: fit-content;
+        margin: 2.5% 30%;
+        padding: 2% 5%;
+    }
+
+    .newCrypto h1 {
+        font-size: 54px;
+    }
+
+    .newCrypto input {
+        width: 90%;
+        height: 60px;
+        background-color: rgb(12, 25, 37);
+        color: #bfa181;
+        padding: 2% 5%;
+        margin: 3% 5%;
+        border: 1px solid #bfa181;
+        font-size: 23px;
+    }
+
+    .newCrypto button {
+        width: 35%;
+        height: 60px;
+        margin-top: 4%;
+    }
+
+    .cryptos {
+        background-color: rgb(12, 25, 37);
+        width: 99%;
+        height: fit-content;
+        margin: 3% auto;
+    }
+
+    .singleCryptoInfo h1 {
+        margin-top: 2%;
+        font-size: 58px;
+    }
+
+    .singleCryptoInfo input {
+        height: 60px;
+    }
+
+    .buttonGroup button {
+        width: 70%;
+        margin: 5% 1%;
+        height: 60px;
+    }
+
+    .divWithInputButton {
+        border: 1px solid #bfa181;
+        width: 90%;
+        height: fit-content;
+        margin: .5% auto;
+
+    }
+
+    .divWithInputButton input {
+        width: 30%;
+        height: 60px;
+        margin: 2% 35%;
+        padding: 1% 5%;
+        background-color: rgb(12, 25, 37);
+        border: 1px solid #bfa181;
+        color: #bfa181;
+        font-size: 22px;
+    }
+
+    .divWithInputButton p {
+        margin-top: 0px;
+    }
+
+    .divWithInputButton .searchButton {
+        width: 16%;
+        height: 60px;
+        margin: .1% 42%;
+    }
+
+    .IndividualCrypto {
+        margin: 3% auto;
+        width: 40%;
+    }
+
+    .IndividualCrypto h1 {
+        margin-top: 1%;
+        font-size: 60px;
+    }
+
+    .IndividualCrypto input {
+        width: 80%;
+        height: 60px;
+        margin: 1.5% 10%;
+        padding: 1% 5%;
+        background-color: rgb(12, 25, 37);
+        color: #bfa181;
+        border: 1px solid #bfa181;
+    }
+
+    .nouserfound {
+        width: 90%;
+        height: fit-content;
+        padding: 3%;
+        margin: 4% auto;
+        border: 0px solid #bfa181;
+    }
+
+    .nouserfound h1 {
+        font-size: 50px;
+    }
+
+    .nouserfound button {
+        width: 30%;
+        height: 60px;
+        margin: 3% 35%;
+    }
+
+}
