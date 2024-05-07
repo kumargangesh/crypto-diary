@@ -10,9 +10,8 @@ function SingleCryptoInfo(props) {
   const [Crypto_Amount_Invested, setCryptoAmount] = useState();
   const [readOnly, toggleReadOnly] = useState(true);
 
-  const [PriceVisibilty, togglePriceVisisbilty] = useState(false);
-  const [QuantityVisibilty, toggleQuantityVisisbilty] = useState(false);
-  const [AmountVisibilty, toggleAmountVisisbilty] = useState(false);
+  const [message, setMessage] = useState("");
+  const [messageVisibilty, toggleMessageVisisbilty] = useState(false);
 
   const [updateClicked, toggleUpdateClicked] = useState(false);
 
@@ -41,29 +40,25 @@ function SingleCryptoInfo(props) {
   }
 
   const confirmUpdate = async () => {
+    toggleMessageVisisbilty(true);
     if (updateClicked === true) {
       toggleReadOnly(true);
 
       if (Crypto_Price === "" && Crypto_Quantity === "" && Crypto_Amount_Invested === "") {
-        togglePriceVisisbilty(true);
-        toggleQuantityVisisbilty(true);
-        toggleAmountVisisbilty(true);
+        setMessage("Enter Price, Quantity and Invested Amount");
         toggleReadOnly(false);
       } else if (Crypto_Price === "") {
-        togglePriceVisisbilty(true);
+        setMessage("Enter Price");
         toggleReadOnly(false);
       } else if (Crypto_Quantity === "") {
-        toggleQuantityVisisbilty(true);
+        setMessage("Enter Quantity");
         toggleReadOnly(false);
       }
       else if (Crypto_Amount_Invested === "") {
-        toggleAmountVisisbilty(true);
+        setMessage("Enter Invested Amount");
         toggleReadOnly(false);
       } else {
-        togglePriceVisisbilty(false);
-        toggleQuantityVisisbilty(false);
-        toggleAmountVisisbilty(false);
-        alert("okay the values, will be updated");
+        setMessage("okay the values are updating....");
         toggleUpdateClicked(false);
 
         const value = collection(database, props.userID);
@@ -87,16 +82,17 @@ function SingleCryptoInfo(props) {
           Crypto_Amount_Invested: Crypto_Amount_Invested
         });
 
-        alert("Crypto Data updated successfully");
+        setMessage("Crypto Data updated successfully");
 
       }
     } else {
-      alert("First click on Update Button, toc continue");
+      setMessage("First click on Update Button");
     }
 
   }
 
   const deleteCryptoInfo = async () => {
+    toggleMessageVisisbilty(true);
     if (window.confirm("Are you sure want to delete " + Crypto_Name) === true) {
       const value = collection(database, props.userID);
 
@@ -113,7 +109,7 @@ function SingleCryptoInfo(props) {
 
       const deleteVal = doc(database, props.userID, Crypto_Data_To_Update);
       await deleteDoc(deleteVal);
-      alert("information deleted");
+      setMessage("information deleted");
     }
   }
 
@@ -128,10 +124,10 @@ function SingleCryptoInfo(props) {
         onChange={PriceHandler}
         readOnly={readOnly} />
 
-      <center><p style={{
+      {/* <center><p style={{
         color: "red",
         visibility: PriceVisibilty === false ? "hidden" : "visible"
-      }}>Enter Price</p></center>
+      }}>Enter Price</p></center> */}
 
       <input
         type="text"
@@ -139,10 +135,10 @@ function SingleCryptoInfo(props) {
         onChange={QuantityHandler}
         readOnly={readOnly} />
 
-      <center><p style={{
+      {/* <center><p style={{
         color: "red",
         visibility: QuantityVisibilty === false ? "hidden" : "visible"
-      }}>Enter Quantity</p></center>
+      }}>Enter Quantity</p></center> */}
 
       <input
         type="text"
@@ -151,9 +147,9 @@ function SingleCryptoInfo(props) {
         readOnly={readOnly} />
 
       <center><p style={{
-        color: "red",
-        visibility: AmountVisibilty === false ? "hidden" : "visible"
-      }}>Enter Amount Invested</p></center>
+        color : "red",
+        visibility : messageVisibilty === true ? "visible" : "hidden"
+      }}>{message}</p></center>
 
       <div className="buttonGroup d-flex justify-content-around">
         <button className="btn btn-outline-success" onClick={update}>UPDATE</button>

@@ -1,36 +1,37 @@
 import React, { useEffect, useState } from 'react';
 import "./Style.css";
+import {useNavigate} from "react-router-dom";
 
 function Navbar(props) {
 
   const [email, changeEmail] = useState();
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     changeEmail(props.email);
-    console.log("in useEffect : "+props.email);
+    console.log("in useEffect : " + props.email);
     getEmail();
   }, [props.email]);
 
-  const getEmail =() => {
-    if(props.email === undefined){
+  const getEmail = () => {
+    if (props.email === undefined) {
       alert("Enter Email");
-    }else{
+    } else {
       changeEmail(props.email.charAt(0).toUpperCase());
     }
   }
 
-  const deleteUser = () => {
-    if(email === "S"){
-      alert("Please SignUp or Login");
-    }else{
-      
-    }
+  const gotosettings = () => {
+    navigate("/usersettings");
   }
 
   return (
     <div className="navbar">
+
       <h1>Crypto-Diary</h1>
-      <button onClick={deleteUser}>{email}</button>
+      <button onClick={gotosettings}>{email}</button>
+
     </div>
   )
 }

@@ -1,38 +1,42 @@
-import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { database, auth } from "../Backend-Connectivity/FireBaseInstamce";
 import { collection, addDoc, getDocs } from 'firebase/firestore';
 
 export const signUpUser =async (email, password) => {
-    
+
     let status = false;
+    let errorMessage = "";
 
     await createUserWithEmailAndPassword(auth, email, password).
     then(res => {
-        alert("Hurray, User successfully created");
-        status = true
-    }).
-    catch(error =>  {
-        alert(error.message);
+        status = true;
+    }).catch(error => {
         status = false;
+        errorMessage = error.message;
     });
-
-    return status;
+    return [status, errorMessage];
 }
 
 export const signInUser =async(email, password) => {
 
     let userID = "";
+    let status = false;
+    let errorMessage = "";
 
     await signInWithEmailAndPassword(auth, email, password)
     .then((userData) => {
-        console.log(userData);
-        console.log("user email : "+userData.user.email);
-        console.log("user ID : "+userData.user.uid);
+        // console.log(userData);
+        // console.log("user email : "+userData.user.email);
+        // console.log("user ID : "+userData.user.uid);
         userID = userData.user.uid;
+        status = true;
     })
-    .catch(error => alert(error.message));
+    .catch(error => {
+        status = false;
+        errorMessage = error.message;
+    });
 
-    return userID;
+    return [userID, status, errorMessage];
 }
 
 export const addCryptoDataToFireBase =async(userID, CryptoName, CryptoPrice, CryptoQuantity, CryptoInvestedAmount) => {

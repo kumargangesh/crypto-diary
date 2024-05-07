@@ -1,8 +1,8 @@
 import React from 'react';
 import SingleCryptoInfo from './SingleCryptoInfo';
 import "./Style.css";
-import NoUserFound from './NoUserFound';
-import NoCryptoExists from './NoCryptoExists';
+import NoUserFound from './Unavailble/NoUserFound';
+import NoCryptoExists from './Unavailble/NoCryptoExists';
 
 
 function ShowAllCrypto(props) {

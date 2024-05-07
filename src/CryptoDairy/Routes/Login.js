@@ -7,7 +7,7 @@ function Login(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [visible, setVisible] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
+  const [message, setMessage] = useState("");
 
   const navigate = useNavigate();
 
@@ -20,12 +20,13 @@ function Login(props) {
   }
 
   const reset = () => {
+    setVisible(true);
     if (email === "" && password === "") {
-      alert("Enter Email and Password");
+      setMessage("Enter Email and Password");
     } else if (email === "") {
-      alert("Enter Email");
+      setMessage("Enter Email");
     } else if (password === "") {
-      alert("Enter Password");
+      setMessage("Enter Password");
     } else {
       if (window.confirm("Are you sure to reset values") === true) {
         setEmail("");
@@ -35,44 +36,64 @@ function Login(props) {
   }
 
   const submit = async () => {
+    setVisible(true);
     if (email === "" && password === "") {
-      alert("Enter Email and Password");
+      setMessage("Enter Email and Password");
     } else if (email === "") {
-      alert("Enter Email");
+      setMessage("Enter Email");
     } else if (password === "") {
-      alert("Enter Password");
+      setMessage("Enter Password");
     } else {
-
-      let userID = await signInUser(email, password);
-      console.log("in the sign in, userID : " + userID);
-      if (userID !== "") {
+      const returnFromSignInUser = await signInUser(email, password);
+      console.log(returnFromSignInUser);
+      if (returnFromSignInUser[1] === true) {
+        let userID = returnFromSignInUser[0];
         alert("User, successfully logged in.....");
         props.setemail(email);
         props.setuserid(userID);
+        props.setPassword(password);
         setVisible(false);
         navigate("/routing");
       } else {
         setVisible(true);
+        setMessage(returnFromSignInUser[2]);
         navigate("/login");
       }
+
     }
   }
 
   return (
     <div>
       <div className="signUpBox">
+
         <center><h1>Enter Details for Login</h1></center>
-        <input type="email" placeholder="Enter Email" value={email} onChange={emailHandler} />
-        <input type="text" placeholder="Enter Password" value={password} onChange={passwordHandler} />
+
+        <input
+          type="email"
+          placeholder="Enter Email"
+          value={email}
+          onChange={emailHandler}
+        />
+
+        <input
+          type="text"
+          placeholder="Enter Password"
+          value={password}
+          onChange={passwordHandler}
+        />
+
         <p style={
           {
             textAlign: "center",
             visibility: visible === true ? "visible" : "hidden"
           }
-        }>Enter the correct crenditials</p>
+        }>{message}</p>
         <div className="buttons d-flex justify-content-between">
+
           <button className="btn btn-outline-success" onClick={reset}>RESET</button>
-          <button className="btn btn-outline-success" onClick={submit}>SUBMIT</button>
+          <button className="btn btn-outline-success" onClick={submit}>SIGNIN</button>
+          
         </div>
       </div>
     </div>

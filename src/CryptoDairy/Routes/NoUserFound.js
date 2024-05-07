@@ -1,29 +1,29 @@
 import React from 'react';
 import { useNavigate } from "react-router-dom";
-import "./Style.css";
+import "./Style.css"
 
-function NoCryptoExists() {
+function NoUserFound() {
 
   const navigate = useNavigate();
 
   const moveToSignup = () => {
-    navigate("/newentry");
+    navigate("/");
   }
 
   return (
     <div className="nouserfound">
 
       <center>
-        <h1>No Crypto exists with this user, please add some</h1>
+        <h1>Please SignUp or Login to acces the services</h1>
       </center>
 
       <button
         className="btn btn-outline-success"
         onClick={moveToSignup}>
-        ADD CRYPTO
+        SIGNUP / LOGIN
       </button>
     </div>
   )
 }
 
-export default NoCryptoExists;
+export default NoUserFound;

@@ -16,11 +16,31 @@ body {
     width: 100%;
     height: 100px;
     margin: 0px auto;
+    display: flex;
 }
 
 .navbar h1 {
     margin-left: 5%;
 }
+
+/* .btn-group{
+    margin-right: 10%;
+}
+
+.btn-group button{
+    width: 50px;
+    height: 50px;
+    border-radius: 500px;
+    border: 1px solid #bfa181;
+    color: #bfa181;
+}
+
+.btn-group ul{
+    border: 1px solid white;
+    width: 30px;
+    height: fit-content;
+    margin-top: 5%;
+} */
 
 .navbar button {
     margin-right: 5%;
@@ -38,7 +58,6 @@ body {
     height: auto;
     margin: 10% auto;
     display: flex;
-    /* border: 1px solid #bfa181; */
     padding: 1% 5%;
 }
 
@@ -81,6 +100,75 @@ body {
     font-size: 21px;
 }
 
+.signUpBox p{
+    color: red;
+}
+
+.usersettings{
+    border: 1px solid #bfa181;
+    width: 40%;
+    height: fit-content;
+    margin: 3% 30%;
+    padding: 2%;
+}
+
+.usersettings .username{
+    width: 96%;
+    height: 60px;
+    background-color: rgb(12, 25, 37);
+    color: #bfa181;
+    padding: 1% 5%;
+    border: 1px solid #bfa181;
+    margin: 1% 2%;
+    border-radius: 5px;
+    font-size: 22px;
+}
+
+.inputandswitch{
+    display: flex;
+    width: 96%;
+    height: fit-content;
+    margin: 1% 2%;
+    padding: 1%;
+}
+
+.inputandswitch .password{
+    height: 60px;
+    width: 98%;
+    background-color: rgb(12, 25, 37);
+    color: #bfa181;
+    padding: 1% 5%;
+    border: 1px solid #bfa181;
+    font-size: 22px;
+}
+
+.inputandswitch .switch{
+    width: 30px;
+    margin-left: .1%;
+    margin-top: 20px;
+}
+
+.buttonsBox{
+    margin-top: 5%;
+}
+
+.buttonsBox button{
+    height: 60px;
+    width: 30%;
+}
+
+.nouserfound {
+    width: 90%;
+    height: fit-content;
+    padding: 3%;
+    margin: 3% auto;
+}
+
+.nouserfound button {
+    width: 80%;
+    height: 60px;
+    margin: 5% 10%;
+}
 
 /* ------------------ for mobile screens -------------------- */
 @media(min-width: 300px) {
@@ -132,6 +220,10 @@ body {
         margin: 5%;
     }
 
+    .signUpBox p{
+        color: red;
+    }
+
     .buttons{
         display: flex;
         flex-direction: column;
@@ -141,6 +233,38 @@ body {
         width: 70%;
         height: 50px;
         margin: 2% 15%;
+    }
+
+    .usersettings{
+        width: 90%;
+        margin: 15% 5%;
+    }
+
+    .buttonsBox{
+        margin-top: 8%;
+    }
+    
+    .buttonsBox button{
+        height: 60px;
+        width: 32%;
+    }
+
+    .nouserfound {
+        width: 90%;
+        height: fit-content;
+        padding: 3%;
+        margin: 20% auto;
+        border: 0px solid #bfa181;
+    }
+
+    .nouserfound h1 {
+        font-size: 35px;
+    }
+
+    .nouserfound button {
+        width: 80%;
+        height: 60px;
+        margin: 10%;
     }
 
 }
@@ -195,6 +319,10 @@ body {
         margin: 5%;
     }
 
+    .signUpBox p{
+        color: red;
+    }
+
     .buttons{
         display: flex;
         flex-direction: column;
@@ -204,6 +332,38 @@ body {
         width: 70%;
         height: 50px;
         margin: 2% 15%;
+    }
+
+    .usersettings{
+        width: 90%;
+        margin: 15% 5%;
+    }
+
+    .buttonsBox{
+        margin-top: 8%;
+    }
+    
+    .buttonsBox button{
+        height: 60px;
+        width: 32%;
+    }
+
+    .nouserfound {
+        width: 90%;
+        height: fit-content;
+        padding: 3%;
+        margin: 15% auto;
+        border: 0px solid #bfa181;
+    }
+
+    .nouserfound h1 {
+        font-size: 45px;
+    }
+
+    .nouserfound button {
+        width: 80%;
+        height: 60px;
+        margin: 10%;
     }
 
 }
@@ -269,9 +429,45 @@ body {
         font-size: 21px;
     }
 
+    .signUpBox p{
+        color: red;
+    }
+
     .buttons{
         display: flex;
         flex-direction: row;
+    }
+
+    .usersettings{
+        width: 40%;
+        margin: 5% 30%;
+    }
+
+    .buttonsBox{
+        margin-top: 5%;
+    }
+    
+    .buttonsBox button{
+        height: 60px;
+        width: 30%;
+    }
+
+    .nouserfound {
+        width: 90%;
+        height: fit-content;
+        padding: 3%;
+        margin: 4% auto;
+        border: 0px solid #bfa181;
+    }
+
+    .nouserfound h1 {
+        font-size: 50px;
+    }
+
+    .nouserfound button {
+        width: 30%;
+        height: 60px;
+        margin: 3% 35%;
     }
 
 }

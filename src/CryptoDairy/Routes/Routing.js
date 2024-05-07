@@ -14,21 +14,18 @@ import NewEntry from "../Crypto/NewEntry";
 import ShowIndividualCrypto from '../Crypto/ShowIndividualCrypto';
 import ShowAllCrypto from '../Crypto/ShowAllCrypto';
 import { getCryptoDataFromFireBase } from '../Backend-Connectivity/Methods';
+import UserSettings from './UserSettings';
 
 function Routing() {
 
   const [email, setEmail] = useState("S");
+  const [password, setPassword] = useState("");
   const [userID, setUserID] = useState("");
 
   const [Crypto_Name, setCryptoName] = useState([]);
   const [Crypto_Price, setCryptoPrice] = useState([]);
   const [Crypto_Quantity, setCryptoQuanCrypto_Quantity] = useState([]);
   const [Crypto_Amount_Invested, setCryptoAmount] = useState([]);
-
-  const [CryptoName, setCryptoNamee] = useState();
-  const [CryptoPrice, setCryptoPricee] = useState();
-  const [CryptoQuantity, setCryptoQuantityy] = useState();
-  const [CryptoAmountInvested, setCryptoAmountt] = useState();
 
   const [cryptoName, setcryptoname] = useState();
 
@@ -74,6 +71,7 @@ function Routing() {
             <SignUp
               email={email}
               setemail={setEmail}
+              setPassword={setPassword}
             />
           }
         />
@@ -85,6 +83,7 @@ function Routing() {
               setemail={setEmail}
               userID={userID}
               setuserid={setUserID}
+              setPassword={setPassword}
             />
           }
         />
@@ -108,21 +107,17 @@ function Routing() {
             />
           }
         />
-        
+
         <Route
           path="/showindividualcrypto"
           element={
             <ShowIndividualCrypto
               userID={userID}
-              setcryptoname={setcryptoname}
-              setCryptoName={setCryptoNamee}
-              setCryptoPrice={setCryptoPricee}
-              setCryptoQuantity={setCryptoQuantityy}
-              setCryptoAmount={setCryptoAmountt}
+              Crypto_Name={Crypto_Name}
             />
           }
         />
-        
+
         <Route path="/showallcrypto"
           element={
             <ShowAllCrypto
@@ -131,6 +126,15 @@ function Routing() {
               Crypto_Price={Crypto_Price}
               Crypto_Quantity={Crypto_Quantity}
               Crypto_Amount_Invested={Crypto_Amount_Invested}
+            />
+          }
+        />
+
+        <Route path="/usersettings"
+          element={
+            <UserSettings
+              email={email}
+              password={password}
             />
           }
         />

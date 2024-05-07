@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import "./Style.css";
 import { addCryptoDataToFireBase } from '../Backend-Connectivity/Methods';
 import { useNavigate } from "react-router-dom";
-import NoUserFound from './NoUserFound';
+import NoUserFound from './Unavailble/NoUserFound';
 
 function NewEntry(props) {
 
@@ -16,6 +16,9 @@ function NewEntry(props) {
   const [cryptoPrice, setCryptoPrice] = useState("");
   const [cryptoQuantity, setCryptoQuantity] = useState("");
   const [cryptoInvestedAmount, setCryptoInvestedAmount] = useState("");
+
+  const [message, setMessage] = useState("");
+  const [messageVisibilty, toggleMessageVisibilty] = useState(false);
 
   const nameHandler = (event) => {
     setCryptoName(event.target.value);
@@ -46,6 +49,7 @@ function NewEntry(props) {
     if (isEmpty() !== true) {
       console.log("in the NewEntry.js, userID : " + props.userID);
       addCryptoDataToFireBase(props.userID, cryptoName, cryptoPrice, cryptoQuantity, cryptoInvestedAmount);
+      alert("Crypto data added successfully..");
       reset();
       navigate("/routing");
     }
@@ -58,20 +62,21 @@ function NewEntry(props) {
   }
 
   const isEmpty = () => {
+    toggleMessageVisibilty(true);
     if (cryptoName === "" && cryptoPrice === "" && cryptoQuantity === "" && cryptoInvestedAmount === "") {
-      alert("Please enter All Fields");
+      setMessage("Please enter All Fields");
       return true;
     } else if (cryptoName === "") {
-      alert("Please enter Crypto Name");
+      setMessage("Please enter Crypto Name");
       return true;
     } else if (cryptoPrice === "") {
-      alert("Please enter Crypto Price");
+      setMessage("Please enter Crypto Price");
       return true;
     } else if (cryptoQuantity === "") {
-      alert("Please enter Crypto Quantity");
+      setMessage("Please enter Crypto Quantity");
       return true;
     } else if (cryptoInvestedAmount === "") {
-      alert("Please enter Crypto Invested Amount");
+      setMessage("Please enter Crypto Invested Amount");
       return true;
     } else {
       return false;
@@ -113,8 +118,14 @@ function NewEntry(props) {
             value={cryptoInvestedAmount}
           />
 
+          <center><p style={{
+            color : "red",
+            visibility : messageVisibilty === true ? "visible" : "hidden"
+          }}>{message}</p></center>
+
 
           <div className="d-flex justify-content-between">
+
             <button
               className="btn btn-outline-success"
               onClick={back}>
