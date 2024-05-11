@@ -89,6 +89,7 @@ function Login(props) {
             visibility: visible === true ? "visible" : "hidden"
           }
         }>{message}</p>
+        
         <div className="buttons d-flex justify-content-between">
 
           <button className="btn btn-outline-success" onClick={reset}>RESET</button>

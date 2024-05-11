@@ -9,6 +9,36 @@
     width: 80%;
     height: 60px;
     margin: 5% 10%;
+    box-shadow: 0px 8px 10px 0px #198754;
+    transition: transform ease .5s, box-shadow ease .5s;
+    animation: boxBorderRadius 2s infinite;
+}
+
+.box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 20px 2px #198754;
+}
+
+@keyframes boxBorderRadius {
+    0% {
+        border-radius: 10px;
+    }
+
+    25% {
+        border-radius: 14px;
+    }
+
+    50% {
+        border-radius: 18px;
+    }
+
+    75% {
+        border-radius: 22px;
+    }
+
+    100% {
+        border-radius: 26px;
+    }
 }
 
 /* ------------------ for mobile screens -------------------- */

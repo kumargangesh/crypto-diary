@@ -23,25 +23,6 @@ body {
     margin-left: 5%;
 }
 
-/* .btn-group{
-    margin-right: 10%;
-}
-
-.btn-group button{
-    width: 50px;
-    height: 50px;
-    border-radius: 500px;
-    border: 1px solid #bfa181;
-    color: #bfa181;
-}
-
-.btn-group ul{
-    border: 1px solid white;
-    width: 30px;
-    height: fit-content;
-    margin-top: 5%;
-} */
-
 .navbar button {
     margin-right: 5%;
     width: 50px;
@@ -51,9 +32,18 @@ body {
     background-color: rgb(12, 25, 37);
     color: #bfa181;
     border: 1px solid #bfa181;
+    border-radius: 10px;
+    box-shadow: 0px 8px 10px 0px #bfa181;
+    transition: transform ease .5s, box-shadow ease .5s;
+    animation: boxBorderRadius 2s infinite;
 }
 
-.container{
+.box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 20px 2px #bfa181;
+}
+
+.container {
     width: 60%;
     height: auto;
     margin: 10% auto;
@@ -61,7 +51,8 @@ body {
     padding: 1% 5%;
 }
 
-.signUpButton, .loginButton{
+.signUpButton,
+.loginButton {
     width: 25%;
     height: 60px;
     background-color: rgb(12, 25, 37);
@@ -69,27 +60,58 @@ body {
     border: 1px solid #bfa181;
 }
 
-.signUpButton:hover, .loginButton:hover{
+.signUpButton:hover,
+.loginButton:hover {
     color: rgb(12, 25, 37);
     background-color: #bfa181;
     border-radius: 5%;
 }
 
-.signUpBox{
+.signUpBox {
     background-color: rgb(12, 25, 37);
     color: #bfa181;
     border: 1px solid #bfa181;
     width: 40%;
     margin: 8% auto;
     height: fit-content;
+    box-shadow: 0px 8px 10px 0px #bfa181;
+    transition: transform ease .5s, box-shadow ease .5s;
+    animation: boxBorderRadius 2s infinite;
 }
 
-.signUpBox h1{
+.box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 20px 2px #bfa181;
+}
+
+@keyframes boxBorderRadius {
+    0% {
+        border-radius: 10px;
+    }
+
+    25% {
+        border-radius: 14px;
+    }
+
+    50% {
+        border-radius: 18px;
+    }
+
+    75% {
+        border-radius: 22px;
+    }
+
+    100% {
+        border-radius: 26px;
+    }
+}
+
+.signUpBox h1 {
     margin-top: 5%;
     font-size: 45px;
 }
 
-.signUpBox input{
+.signUpBox input {
     width: 70%;
     height: 60px;
     margin: 5% 15%;
@@ -98,21 +120,60 @@ body {
     border: 1px solid #bfa181;
     padding: 2.5% 5% 2.5% 5%;
     font-size: 21px;
+    box-shadow: 0px 8px 10px 0px #bfa181;
+    transition: transform ease .5s, box-shadow ease .5s;
+    animation: boxBorderRadius 2s infinite;
 }
 
-.signUpBox p{
+.box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 20px 2px #bfa181;
+}
+
+.signUpBox p {
     color: red;
 }
 
-.usersettings{
+.usersettings {
     border: 1px solid #bfa181;
     width: 40%;
     height: fit-content;
     margin: 3% 30%;
     padding: 2%;
+    border-radius: 10px;
+    box-shadow: 0px 8px 10px 0px #bfa181;
+    transition: transform ease .5s, box-shadow ease .5s;
+    animation: boxBorderRadius 2s infinite;
 }
 
-.usersettings .username{
+.box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 20px 2px #bfa181;
+}
+
+@keyframes boxBorderRadius {
+    0% {
+        border-radius: 10px;
+    }
+
+    25% {
+        border-radius: 14px;
+    }
+
+    50% {
+        border-radius: 18px;
+    }
+
+    75% {
+        border-radius: 22px;
+    }
+
+    100% {
+        border-radius: 26px;
+    }
+}
+
+.usersettings .username {
     width: 96%;
     height: 60px;
     background-color: rgb(12, 25, 37);
@@ -122,9 +183,17 @@ body {
     margin: 1% 2%;
     border-radius: 5px;
     font-size: 22px;
+    box-shadow: 0px 8px 10px 0px #bfa181;
+    transition: transform ease .5s, box-shadow ease .5s;
+    animation: boxBorderRadius 2s infinite;
 }
 
-.inputandswitch{
+.box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 20px 2px #bfa181;
+}
+
+.inputandswitch {
     display: flex;
     width: 96%;
     height: fit-content;
@@ -132,7 +201,7 @@ body {
     padding: 1%;
 }
 
-.inputandswitch .password{
+.inputandswitch .password {
     height: 60px;
     width: 98%;
     background-color: rgb(12, 25, 37);
@@ -140,21 +209,37 @@ body {
     padding: 1% 5%;
     border: 1px solid #bfa181;
     font-size: 22px;
+    box-shadow: 0px 8px 10px 0px #bfa181;
+    transition: transform ease .5s, box-shadow ease .5s;
+    animation: boxBorderRadius 2s infinite;
 }
 
-.inputandswitch .switch{
+.box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 20px 2px #bfa181;
+}
+
+.inputandswitch .switch {
     width: 30px;
     margin-left: .1%;
     margin-top: 20px;
 }
 
-.buttonsBox{
+.buttonsBox {
     margin-top: 5%;
 }
 
-.buttonsBox button{
+.buttonsBox button {
     height: 60px;
     width: 30%;
+    box-shadow: 0px 8px 10px 0px #198754;
+    transition: transform ease .5s, box-shadow ease .5s;
+    animation: boxBorderRadius 2s infinite;
+}
+
+.box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 20px 2px #198754;
 }
 
 .nouserfound {
@@ -168,6 +253,14 @@ body {
     width: 80%;
     height: 60px;
     margin: 5% 10%;
+    box-shadow: 0px 8px 10px 0px #198754;
+    transition: transform ease .5s, box-shadow ease .5s;
+    animation: boxBorderRadius 2s infinite;
+}
+
+.box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 20px 2px #198754;
 }
 
 /* ------------------ for mobile screens -------------------- */
@@ -190,15 +283,25 @@ body {
         border-radius: 500px;
     }
 
-    .signUpButton, .loginButton{
+    .signUpButton,
+    .loginButton {
         width: 90%;
         height: 60px;
         padding: 2% 5%;
         margin: 1% 5%;
         margin-top: 5%;
+        box-shadow: 0px 8px 10px 0px #bfa181;
+        transition: transform ease .5s, box-shadow ease .5s;
+        animation: boxBorderRadius 2s infinite;
     }
 
-    .container{
+    .box:hover {
+        transform: translateY(-5px);
+        box-shadow: 0px 10px 20px 2px #bfa181;
+    }
+
+
+    .container {
         width: 90%;
         padding: 5%;
         display: flex;
@@ -206,45 +309,54 @@ body {
         margin-top: 25%;
     }
 
-    .signUpBox{
+    .signUpBox {
         margin-top: 15%;
         width: 95%;
     }
 
-    .signUpBox h1{
+    .signUpBox h1 {
         font-size: 30px;
     }
 
-    .signUpBox input{
+    .signUpBox input {
         width: 90%;
         margin: 5%;
     }
 
-    .signUpBox p{
+    .signUpBox p {
         color: red;
     }
 
-    .buttons{
+    .buttons {
         display: flex;
         flex-direction: column;
     }
 
-    .buttons button{
+    .buttons button {
         width: 70%;
-        height: 50px;
+        height: 60px;
         margin: 2% 15%;
+        box-shadow: 0px 8px 10px 0px #198754;
+        transition: transform ease .5s, box-shadow ease .5s;
+        animation: boxBorderRadius 2s infinite;
     }
 
-    .usersettings{
+    .box:hover {
+        transform: translateY(-5px);
+        box-shadow: 0px 10px 20px 2px #198754;
+    }
+
+
+    .usersettings {
         width: 90%;
         margin: 15% 5%;
     }
 
-    .buttonsBox{
+    .buttonsBox {
         margin-top: 8%;
     }
-    
-    .buttonsBox button{
+
+    .buttonsBox button {
         height: 60px;
         width: 32%;
     }
@@ -289,7 +401,7 @@ body {
         border-radius: 500px;
     }
 
-    .container{
+    .container {
         width: 90%;
         padding: 5%;
         display: flex;
@@ -298,52 +410,53 @@ body {
         margin-top: 20%;
     }
 
-    .signUpButton, .loginButton{
+    .signUpButton,
+    .loginButton {
         width: 90%;
         height: 60px;
         margin: 1% 5%;
         margin-top: 5%;
     }
 
-    .signUpBox{
+    .signUpBox {
         margin-top: 8%;
         width: 95%;
     }
 
-    .signUpBox h1{
+    .signUpBox h1 {
         font-size: 40px;
     }
 
-    .signUpBox input{
+    .signUpBox input {
         width: 90%;
         margin: 5%;
     }
 
-    .signUpBox p{
+    .signUpBox p {
         color: red;
     }
 
-    .buttons{
+    .buttons {
         display: flex;
         flex-direction: column;
     }
 
-    .buttons button{
+    .buttons button {
         width: 70%;
         height: 50px;
         margin: 2% 15%;
     }
 
-    .usersettings{
+    .usersettings {
         width: 90%;
         margin: 15% 5%;
     }
 
-    .buttonsBox{
+    .buttonsBox {
         margin-top: 8%;
     }
-    
-    .buttonsBox button{
+
+    .buttonsBox button {
         height: 60px;
         width: 32%;
     }
@@ -388,7 +501,7 @@ body {
         border-radius: 500px;
     }
 
-    .container{
+    .container {
         width: 60%;
         padding: 1% 5%;
         display: flex;
@@ -397,14 +510,15 @@ body {
         margin-top: 10%;
     }
 
-    .signUpButton, .loginButton{
+    .signUpButton,
+    .loginButton {
         width: 250px;
         height: 65px;
         margin: initial;
         margin-top: initial;
     }
 
-    .signUpBox{
+    .signUpBox {
         background-color: rgb(12, 25, 37);
         color: #bfa181;
         border: 1px solid #bfa181;
@@ -412,13 +526,13 @@ body {
         margin: 4% auto;
         height: fit-content;
     }
-    
-    .signUpBox h1{
+
+    .signUpBox h1 {
         margin-top: 5%;
         font-size: 45px;
     }
-    
-    .signUpBox input{
+
+    .signUpBox input {
         width: 70%;
         height: 60px;
         margin: 5% 15%;
@@ -429,25 +543,25 @@ body {
         font-size: 21px;
     }
 
-    .signUpBox p{
+    .signUpBox p {
         color: red;
     }
 
-    .buttons{
+    .buttons {
         display: flex;
         flex-direction: row;
     }
 
-    .usersettings{
+    .usersettings {
         width: 40%;
         margin: 5% 30%;
     }
 
-    .buttonsBox{
+    .buttonsBox {
         margin-top: 5%;
     }
-    
-    .buttonsBox button{
+
+    .buttonsBox button {
         height: 60px;
         width: 30%;
     }

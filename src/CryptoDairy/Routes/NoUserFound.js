@@ -22,6 +22,7 @@ function NoUserFound() {
         onClick={moveToSignup}>
         SIGNUP / LOGIN
       </button>
+      
     </div>
   )
 }

@@ -5,6 +5,7 @@ import { database } from '../Backend-Connectivity/FireBaseInstamce';
 function SingleCryptoInfo(props) {
 
   const [Crypto_Name, setCryptoName] = useState();
+  const [Crypto_Parsed_Name, setCryptoParsedName] = useState();
   const [Crypto_Price, setCryptoPrice] = useState();
   const [Crypto_Quantity, setCryptoQuantity] = useState();
   const [Crypto_Amount_Invested, setCryptoAmount] = useState();
@@ -17,10 +18,21 @@ function SingleCryptoInfo(props) {
 
   useEffect(() => {
     setCryptoName(props.name);
+    checkNameCondition();
     setCryptoPrice(props.price);
     setCryptoQuantity(props.quantity);
     setCryptoAmount(props.amount);
   }, [props.name]);
+
+  const checkNameCondition =() => {
+    if(props.name.length > 9){
+      let name = props.name;
+      let updatedName = name.slice(0,8)+"....";
+      setCryptoParsedName(updatedName);
+    }else{
+      setCryptoParsedName(props.name);
+    }
+  }
 
   const PriceHandler = (event) => {
     setCryptoPrice(event.target.value);
@@ -94,6 +106,8 @@ function SingleCryptoInfo(props) {
   const deleteCryptoInfo = async () => {
     toggleMessageVisisbilty(true);
     if (window.confirm("Are you sure want to delete " + Crypto_Name) === true) {
+
+      console.log("crypto name to delete : "+Crypto_Name);
       const value = collection(database, props.userID);
 
       const Crypto_Info = await getDocs(value);
@@ -116,7 +130,7 @@ function SingleCryptoInfo(props) {
   return (
     <div className="singleCryptoInfo">
 
-      <center><h1>{Crypto_Name}</h1></center>
+      <center><h1>{Crypto_Parsed_Name}</h1></center>
 
       <input
         type="text"
@@ -124,21 +138,11 @@ function SingleCryptoInfo(props) {
         onChange={PriceHandler}
         readOnly={readOnly} />
 
-      {/* <center><p style={{
-        color: "red",
-        visibility: PriceVisibilty === false ? "hidden" : "visible"
-      }}>Enter Price</p></center> */}
-
       <input
         type="text"
         value={Crypto_Quantity}
         onChange={QuantityHandler}
         readOnly={readOnly} />
-
-      {/* <center><p style={{
-        color: "red",
-        visibility: QuantityVisibilty === false ? "hidden" : "visible"
-      }}>Enter Quantity</p></center> */}
 
       <input
         type="text"

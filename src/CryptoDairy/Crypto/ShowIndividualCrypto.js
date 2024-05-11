@@ -46,12 +46,10 @@ function ShowIndividualCrypto(props) {
     }
 
     const search = () => {
-        toggleButtonClicked(false);
         if (cryptoName === "") {
             setVisibilty(true);
         } else {
             setVisibilty(false);
-            toggleButtonClicked(true);
             getCryptoInfoUsingName();
         }
     }
@@ -92,18 +90,18 @@ function ShowIndividualCrypto(props) {
     }
 
     const update = () => {
+      if(updateButton === true){
+        toggleUpdateButton(false);
+        toggleReadOnly(true);
+      }else{
         toggleUpdateButton(true);
-        if (readOnly === true) {
-            toggleReadOnly(false);
-        } else {
-            toggleReadOnly(true);
-        }
+        toggleReadOnly(false);
+      }
     }
 
     const confirmUpdate = async () => {
         toggleMessageVisisbilty(true);
         if (updateButton === true) {
-            toggleUpdateButtonVisibilty(false);
 
             if (Crypto_Price === "" && Crypto_Quantity === "" && Crypto_Amount_Invested === "") {
                 setMessage("Enter Price, Quantity, Amount Invested");
@@ -146,7 +144,6 @@ function ShowIndividualCrypto(props) {
             }
 
         } else {
-            toggleUpdateButtonVisibilty(true);
             setMessage("First click Update Button");
         }
     }

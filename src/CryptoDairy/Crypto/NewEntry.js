@@ -45,13 +45,18 @@ function NewEntry(props) {
     }
   }
 
-  const submit = () => {
+  const submit = async() => {
     if (isEmpty() !== true) {
       console.log("in the NewEntry.js, userID : " + props.userID);
-      addCryptoDataToFireBase(props.userID, cryptoName, cryptoPrice, cryptoQuantity, cryptoInvestedAmount);
-      alert("Crypto data added successfully..");
-      reset();
-      navigate("/routing");
+      const returnFromtaddDataToDatabase = await addCryptoDataToFireBase(props.userID, cryptoName, cryptoPrice, cryptoQuantity, cryptoInvestedAmount);
+      console.log("in the submit of NewEntry, status : "+returnFromtaddDataToDatabase[0]);
+      if (returnFromtaddDataToDatabase[0] !== true) {
+        alert("Crypto Data added successfully");
+        reset();
+        navigate("/routing");
+      } else {
+        setMessage(returnFromtaddDataToDatabase[1]);
+      }
     }
   }
 
@@ -119,8 +124,8 @@ function NewEntry(props) {
           />
 
           <center><p style={{
-            color : "red",
-            visibility : messageVisibilty === true ? "visible" : "hidden"
+            color: "red",
+            visibility: messageVisibilty === true ? "visible" : "hidden"
           }}>{message}</p></center>
 
 

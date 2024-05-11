@@ -46,16 +46,16 @@ export const addCryptoDataToFireBase =async(userID, CryptoName, CryptoPrice, Cry
     CryptoName = CryptoName.toUpperCase();
 
     let status = false;
+    let statusMessage = "";
 
     Crypto_Data.docs.map(crypto => {
         if(crypto.data().Crypto_Name === CryptoName){
             status = true;
-            console.log("in isDataExists, crypto already exists");
         }
     });
 
     if(status === true){
-        alert("Crypto named "+CryptoName+" already exists");
+        statusMessage = "Crypto named "+CryptoName+" already exists";
     }else{
         await addDoc(value, {
             Crypto_Name : CryptoName,
@@ -63,8 +63,10 @@ export const addCryptoDataToFireBase =async(userID, CryptoName, CryptoPrice, Cry
             Crypto_Quantity : CryptoQuantity,
             Crypto_Amount_Invested : CryptoInvestedAmount
         });
-        alert("data inserted");
+        statusMessage = "data inserted";
     }
+
+    return [status, statusMessage];
 }
 
 export const getCryptoDataFromFireBase =async(userID) => {
