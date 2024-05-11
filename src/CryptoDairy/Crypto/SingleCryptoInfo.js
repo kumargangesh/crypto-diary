@@ -24,12 +24,12 @@ function SingleCryptoInfo(props) {
     setCryptoAmount(props.amount);
   }, [props.name]);
 
-  const checkNameCondition =() => {
-    if(props.name.length > 9){
+  const checkNameCondition = () => {
+    if (props.name.length > 9) {
       let name = props.name;
-      let updatedName = name.slice(0,8)+"....";
+      let updatedName = name.slice(0, 8) + "....";
       setCryptoParsedName(updatedName);
-    }else{
+    } else {
       setCryptoParsedName(props.name);
     }
   }
@@ -107,7 +107,7 @@ function SingleCryptoInfo(props) {
     toggleMessageVisisbilty(true);
     if (window.confirm("Are you sure want to delete " + Crypto_Name) === true) {
 
-      console.log("crypto name to delete : "+Crypto_Name);
+      console.log("crypto name to delete : " + Crypto_Name);
       const value = collection(database, props.userID);
 
       const Crypto_Info = await getDocs(value);
@@ -151,14 +151,27 @@ function SingleCryptoInfo(props) {
         readOnly={readOnly} />
 
       <center><p style={{
-        color : "red",
-        visibility : messageVisibilty === true ? "visible" : "hidden"
+        color: "red",
+        visibility: messageVisibilty === true ? "visible" : "hidden"
       }}>{message}</p></center>
 
       <div className="buttonGroup d-flex justify-content-around">
-        <button className="btn btn-outline-success" onClick={update}>UPDATE</button>
-        <button className="btn btn-outline-success" onClick={confirmUpdate}>CONFIRM UPDATE</button>
-        <button className="btn btn-outline-success" onClick={deleteCryptoInfo}>DELETE</button>
+
+        <button
+          className="btn btn-outline-success" onClick={update}>
+          UPDATE
+        </button>
+
+        <button
+          className="btn btn-outline-success" onClick={confirmUpdate}>
+          CONFIRM UPDATE
+        </button>
+
+        <button
+          className="btn btn-outline-success" onClick={deleteCryptoInfo}>
+          DELETE
+        </button>
+
       </div>
 
     </div>

@@ -1,8 +1,19 @@
+
+// this is the Methods.js file, where all the handy methods releated to :
+// * UserSignUp, 
+// * UserLogin, 
+// * User-Authentiction 
+// * NewCrypto Entry
+// * Showing All Crypto
+
+
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { database, auth } from "../Backend-Connectivity/FireBaseInstamce";
 import { collection, addDoc, getDocs } from 'firebase/firestore';
 
 export const signUpUser =async (email, password) => {
+
+    // signUpUser method use to SignUp an User with the Firebase
 
     let status = false;
     let errorMessage = "";
@@ -15,9 +26,15 @@ export const signUpUser =async (email, password) => {
         errorMessage = error.message;
     });
     return [status, errorMessage];
+
+    // it returns two values :
+    //     * status : true / false
+    //     * errorMessage : message returned by the Firebase while SignUp
 }
 
 export const signInUser =async(email, password) => {
+
+    // signInUser method use to SignIn an User with the Firebase
 
     let userID = "";
     let status = false;
@@ -25,9 +42,6 @@ export const signInUser =async(email, password) => {
 
     await signInWithEmailAndPassword(auth, email, password)
     .then((userData) => {
-        // console.log(userData);
-        // console.log("user email : "+userData.user.email);
-        // console.log("user ID : "+userData.user.uid);
         userID = userData.user.uid;
         status = true;
     })
@@ -37,9 +51,18 @@ export const signInUser =async(email, password) => {
     });
 
     return [userID, status, errorMessage];
+
+    //  it returns two values :
+    //     * userID : returned when an user found successfully
+    //     * status : true / false
+    //     * errorMessage : message returned by the Firebase while SignUp
+    
 }
 
 export const addCryptoDataToFireBase =async(userID, CryptoName, CryptoPrice, CryptoQuantity, CryptoInvestedAmount) => {
+
+    // addCryptoDataToFireBase method is use to add a new Crypto to th Firebase
+
     const value = collection(database, userID);
     const Crypto_Data = await getDocs(value);
 
@@ -70,6 +93,9 @@ export const addCryptoDataToFireBase =async(userID, CryptoName, CryptoPrice, Cry
 }
 
 export const getCryptoDataFromFireBase =async(userID) => {
+
+    // getCryptoDataFromFireBase method is use to get a particular crypto data respective of that user
+
     const value = collection(database, userID);
     const Crypto_Values = await getDocs(value);
     let Crypto_Data = [];
@@ -84,72 +110,3 @@ export const getCryptoDataFromFireBase =async(userID) => {
 
     return Crypto_Data;
 }
-
-
-
-// export const addDataToFireBase = async (userName, password) => {
-
-//     const value = collection(database, "users");
-
-//     const status = await isUserExists(userName);
-
-//     if (status !== undefined) {
-//         const newCollection = collection(database, status);
-
-//         await addDoc(newCollection, {
-//             Crypto_Name : "LIVEPEER",
-//             Crypto_Price : 1350,
-//             Crypto_Quantity : 10,
-//             Crypto_Amount_Invested : 13500
-//         });
-//         alert("data inserted");
-    
-//     } else {
-//         console.log("user already exists");
-//     }
-
-//     // if (status === false) {
-
-//     //     // await addDoc(value, {
-//     //     //     name: userName,
-//     //     //     password: password
-//     //     // });
-//     //     // alert("user created");
-//     // } else {
-//     //     console.log("user already exists");
-//     // }
-
-// }
-
-// const isUserExists = async (userName) => {
-
-//     const value = collection(database, "users");
-
-//     const users = await getDocs(value);
-
-//     let status;
-
-//     users.docs.map(doc => {
-//         if (doc.data().name === userName) {
-//             status = doc.id;
-//         }
-//     });
-
-//     return status;
-
-//     // if (status === true) {
-//     //     return true;
-//     // } return false;
-
-//     // let userNames = [];
-
-//     // users.docs.map(doc => {
-//     //     let user = [];
-//     //     user.push(doc.data().name);
-//     //     user.push(doc.data().password);
-//     //     userNames.push(user);
-//     // });
-
-//     // return userNames;
-// }
-

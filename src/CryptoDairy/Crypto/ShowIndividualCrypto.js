@@ -292,6 +292,4 @@ function ShowIndividualCrypto(props) {
     )
 }
 
-
-
 export default ShowIndividualCrypto;

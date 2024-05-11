@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import "./Style.css";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Navbar(props) {
 
@@ -30,7 +30,11 @@ function Navbar(props) {
     <div className="navbar">
 
       <h1>Crypto-Diary</h1>
-      <button onClick={gotosettings}>{email}</button>
+
+      <button
+        onClick={gotosettings}>
+        {email}
+      </button>
 
     </div>
   )
